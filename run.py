@@ -13,7 +13,7 @@ data_test = torchvision.datasets.CIFAR10(data_path,train=False,download=True,
 
 
 
-model = ConvWithBnorm()
+model = ConvWithDropout()
 results = fit_model(data_train,data_test,model)
 
 model =  SimpleConv()
