@@ -48,17 +48,17 @@ class ConvWithBnorm(nn.Module):
 
 
 class ConvWithDropout(nn.Module):
-    def __init__(self):
+    def __init__(self,p=0.4):
         super().__init__()
         self.conv1 = nn.Conv2d(3,16,kernel_size=3,padding=1)
         #self.bnorm1 = nn.BatchNorm2d(16)
         self.act1 = nn.ReLU()
-        self.dropout1 = nn.Dropout2d(p=0.4)
+        self.dropout1 = nn.Dropout2d(p)
         self.pool1 = nn.MaxPool2d(2)
         self.conv2 = nn.Conv2d(16,8,kernel_size=3,padding=1)
         #self.bnorm2 = nn.BatchNorm2d(8)
         self.act2 = nn.ReLU()
-        self.dropout2 = nn.Dropout2d(p=0.4)
+        self.dropout2 = nn.Dropout2d(p)
 
         self.pool2 = nn.MaxPool2d(2)
         self.fc1 = nn.Linear(8 * 8 * 8, 32)
